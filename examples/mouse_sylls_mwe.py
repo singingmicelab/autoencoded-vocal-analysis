@@ -36,18 +36,18 @@ from ava.segmenting.amplitude_segmentation import get_onsets_offsets
 #########################################
 params = {
 	'segment': {
-		'min_freq': 30e3, # minimum frequency
-		'max_freq': 110e3, # maximum frequency
+		'min_freq': 10e3, # minimum frequency
+		'max_freq': 100e3, # maximum frequency
 		'nperseg': 1024, # FFT
 		'noverlap': 512, # FFT
-		'spec_min_val': 2.0, # minimum log-spectrogram value
-		'spec_max_val': 6.0, # maximum log-spectrogram value
-		'fs': 250000, # audio samplerate
+		'spec_min_val': 2.2, # minimum log-spectrogram value
+		'spec_max_val': 3.2, # maximum log-spectrogram value
+		'fs': 250027, # audio samplerate
 		'th_1':0.1, # segmenting threshold 1
-		'th_2':0.2, # segmenting threshold 2
-		'th_3':0.3, # segmenting threshold 2
+		'th_2':0.15, # segmenting threshold 2
+		'th_3':0.25, # segmenting threshold 2
 		'max_dur': 0.2, # maximum syllable duration
-		'min_dur':0.03, # minimum syllable duration
+		'min_dur':0.005, # minimum syllable duration
 		'smoothing_timescale': 0.007, # timescale for smoothing amplitude trace
 		'softmax': True, # puts amplitude values in [0,1]
 		'temperature': 0.5, # temperature parameter for softmax
@@ -56,8 +56,8 @@ params = {
 	'preprocess': {
 		'get_spec': get_spec,
 		'max_dur': 0.2, # maximum syllable duration
-		'min_freq': 30e3, # minimum frequency
-		'max_freq': 110e3, # maximum frequency
+		'min_freq': 10e3, # minimum frequency
+		'max_freq': 100e3, # maximum frequency
 		'num_freq_bins': X_SHAPE[0], # hard-coded
 		'num_time_bins': X_SHAPE[1], # hard-coded
 		'nperseg': 1024, # FFT
@@ -66,7 +66,7 @@ params = {
 		'spec_max_val': 6.0, # maximum log-spectrogram value
 		'fs': 250000, # audio samplerate
 		'mel': False, # frequency spacing, mel or linear
-		'time_stretch': True, # stretch short syllables?
+		'time_stretch': False, # stretch short syllables?
 		'within_syll_normalize': False, # normalize spectrogram values on a
 										# spectrogram-by-spectrogram basis
 		'max_num_syllables': None, # maximum number of syllables per directory
@@ -79,7 +79,7 @@ params = {
 	},
 }
 
-root = '/path/to/directory/'
+root = '/mnt/labNAS/Mike/misc/ava_test/usv_example_full'
 audio_dirs = [os.path.join(root, 'audio')]
 seg_dirs = [os.path.join(root, 'segs')]
 proj_dirs = [os.path.join(root, 'projections')]

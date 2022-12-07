@@ -2,9 +2,9 @@ torch>=1.1
 numpy
 matplotlib
 joblib
-umap
+umap-learn
 numba
-sklearn
+scikit-learn
 scipy
-bokeh
+bokeh==2.4.3
 h5py
